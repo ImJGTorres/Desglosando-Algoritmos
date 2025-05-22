@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
@@ -5,6 +9,7 @@ body {
     background: linear-gradient(to right, #434343, #000);
     color: white;
     text-align: center;
+    overflow-x: hidden;
 }
 
 h2 {
@@ -105,64 +110,88 @@ nav ul li a {
     width: 480px;
     height: 270px;  
 }
-.concepts #texto-conceptos {
+.concepts .texto-conceptos {
     flex: 1;
     padding: 0px 20px; 
     min-width: 100px; 
 }
 
-.concepts #texto-conceptos h3 {
+.texto-conceptos h3 {
     margin: 0px;
     font-size: 32px;
+    font-weight: 600;
 }
 
-.concepts #texto-conceptos p {
+.texto-conceptos p {
     margin: 10px 0px;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 
 
 /*EJERCICIOS*/
 .exercises {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     margin: 30px 0px;
 }
 
 .exercise {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 33%;
     text-align: center;
-    padding: 20px;
 }
 
-.exercise .image-container {
+.image-container {
     position: relative; /* Permite que los elementos hijos con position: absolute se posicionen dentro de este */
-    margin-right: 30px;
+    display: inline-block;
     
 }
 
 .main-image {
-    width: 150px;  /* Usa width en lugar de height para imágenes cuadradas */
-    height: auto; /* Mantiene la proporción */
-    max-width: 150px; /* Asegura que no crezca más de lo esperado */
-    max-height: 150px; /* Asegura que no crezca más de lo esperado */
+    width: 150px;
 }
 
 .overlay-image {
     position: absolute;
     bottom: -20px;
     right: -20px;
-    width: 80px;  /* Usa width en lugar de height para imágenes cuadradas */
-    height: auto; /* Mantiene la proporción */
-    max-width: 80px; /* Asegura que no crezca más de lo esperado */
-    max-height: 80px; /* Asegura que no crezca más de lo esperado */
+    width: 60px;
+}
+
+.main-image,
+.overlay-image {
+    max-width: 100%;
+    height: auto;
 }
 
 .exercise p {
     font-size: 20px;
+    margin-top: 40px;
+}
+
+
+.custom-dropdown {
+    max-width: min(90vw, 600px) !important;
+    left: auto !important;
+    right: 0 !important;
+    margin-right: 10px;
+    white-space: normal;
+    overflow-x: hidden;
+}
+
+.custom-dropdown .dropdown-item {
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 100%;
+    padding: 0.5rem 1rem;
+}
+
+/* Para móviles */
+@media (max-width: 768px) {
+    .custom-dropdown {
+        max-width: 90vw !important;
+        margin-right: 5px;
+    }
+    
+    .custom-dropdown .dropdown-item {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
 }
